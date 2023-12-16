@@ -5,7 +5,8 @@ function Resoudre(){
   document.getElementById("method1-container").setAttribute("height","600");
 
   simulation('#method2-container');
-  // here call the methods and change
+  // here call the methods and change the colors of the cycle
+  
  }
 
 let nodes = [];
@@ -33,7 +34,6 @@ let node = d3.select(containerName)
   .attr("r", 15)
   .attr("fill", "#66a3ff")
   .call(drag(simulation))
-  .on("click", handleNodeClick);
 
 let labels = d3.select(containerName)
   .selectAll("text")
@@ -88,59 +88,6 @@ function drag(simulation) {
     .on('end', dragended);
 }
 
-function addNode() {
-  const newNode = { id: nodes.length + 1, label: `Ville ${nodes.length + 1}`, x: Math.random() * 900, y: Math.random() * 700 };
-  nodes.push(newNode);
-
-  node = node.data(nodes, d => d.id);
-  node = node.enter().append("circle")
-    .attr("r", 15)
-    .attr("fill", "#66a3ff")
-    .merge(node)
-    .call(drag(simulation))
-    .on("click", handleNodeClick);
-
-  labels = labels.data(nodes, d => d.id);
-  labels.exit().remove();
-  labels = labels.enter().append("text")
-    .text(d => d.label)
-    .attr("font-size", 12)
-    .attr("dx", 15)
-    .merge(labels);
-
-  simulation.nodes(nodes);
-  simulation.alpha(1).restart();
-}
-
-let isLinking = false;
-let selectedNode = null;
-
-function startLinking() {
-  isLinking = true;
-}
-
-function handleNodeClick(event, d) {
-  if (isLinking) {
-    if (selectedNode === null) {
-      selectedNode = d;
-    } else {
-      const newLink = { source: selectedNode.id, target: d.id };
-      links.push(newLink);
-
-      isLinking = false;
-      selectedNode = null;
-
-      link = link.data(links, d => `${d.source.id}-${d.target.id}`);
-      link = link.enter().append("line")
-        .attr("stroke", "#000000")
-        .attr("stroke-width", 2)
-        .merge(link);
-
-      simulation.force("link").links(links);
-      simulation.alpha(1).restart();
-    }
-  }
-}
 
 function generateGraph() {
   const numVilles = document.getElementById("numVilles").value;
@@ -175,7 +122,7 @@ function updateGraphElements() {
     .attr("fill", "#66a3ff")
     .merge(node)
     .call(drag(simulation))
-    .on("click", handleNodeClick);
+    
 
   labels = labels.data(nodes, d => d.id);
   labels.exit().remove();
