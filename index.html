@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voyageur de commerce</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Probleme de voyageur de commerce</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    <h1>Voyageur de commerce</h1>
+<h3 id="title">Probleme de voyageur de commerce</h3>
+
+<div id="graphs-container">
+  <div id="titles" >
+    <p>Methode exacte</p>
+    <p>Methode vorace</p>
+  </div>
+<div id="containers">
+  <svg id="method1-container" width="900" height="700"></svg>
+  <svg id="method2-container" width="700" height="600" style="display: none;"></svg>
+</div>
+  
+</div>
+
+
+<div id="graph-manipulation">
+  <button onclick="addNode()">Ajouter un sommet</button>
+  <button onclick="startLinking()">Ajouter un arrete</button>
+  <button id="result" onclick="Resoudre()">Trouver le cycle</button>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
