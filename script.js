@@ -20,8 +20,7 @@ function Resoudre(){
 
 function simulation(containerName){
   const simulation = d3.forceSimulation(nodes)
-  .force('link', d3.forceLink(links).id(d => d.id).distance(100))
-  .force('charge', d3.forceManyBody().strength(-100))
+  .force('link', d3.forceLink(links).id(d => d.id).distance(350))
   .force('center', d3.forceCenter(450, 350));
 
 let link = d3.select(containerName)
@@ -49,8 +48,8 @@ let labels = d3.select(containerName)
   .text(d => d.label)
   .attr("font-size", 12)
   .attr('text-anchor', 'middle')
-  .attr("dx", 15)
-  .attr("dy", 4);
+  .attr("dx", 0) 
+  .attr("dy", 0); 
 
 simulation.on('tick', () => {
   link
@@ -103,7 +102,7 @@ function generateGraph() {
 
   // Generate nodes
   for (let i = 0; i < numVilles; i++) {
-    const newNode = { id: i + 1, label: `Ville ${i + 1}`, x: Math.random() * 900, y: Math.random() * 700 };
+    const newNode = { id: i + 1, label: `V${i + 1}`, x: Math.random() * 900, y: Math.random() * 700 };
     nodes.push(newNode);
   }
 
