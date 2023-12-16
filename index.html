@@ -15,19 +15,22 @@
     <p>Methode exacte</p>
     <p>Methode vorace</p>
   </div>
-<div id="containers">
-  <svg id="method1-container" width="900" height="700"></svg>
-  <svg id="method2-container" width="700" height="600" style="display: none;"></svg>
+  <div id="containers">
+    <svg id="method1-container" width="900" height="700"></svg>
+    <svg id="method2-container" width="700" height="600" style="display: none;"></svg>
+  </div>
 </div>
-  
-</div>
-
 
 <div id="graph-manipulation">
-  <button onclick="addNode()">Ajouter un sommet</button>
-  <button onclick="startLinking()">Ajouter un arrete</button>
+  <label for="numVilles">Nombre de villes:</label>
+  <br>
+  <input type="text" id="numVilles" min="1" pattern="[0-9]+">
+  <button onclick="generateGraph()">Générer le graphe</button>
+  <!-- <button onclick="addNode()">Ajouter un sommet</button>
+  <button onclick="startLinking()">Ajouter une arête</button> -->
   <button id="result" onclick="Resoudre()">Trouver le cycle</button>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
