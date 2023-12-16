@@ -49,8 +49,9 @@ button {
 
 #numVilles{
     border: 1px solid   rgb(217, 165, 69);
-    height: 25px;
+    height: 35px;
     border-radius: 8px;
+    font-size: 18px;
 }
 
 #temps1 , #temps2{
@@ -58,6 +59,7 @@ button {
 }
 
 .methode1 , .methode2{
+
     margin-top: 100px;
     background-color: aliceblue;
     padding: 10px;
