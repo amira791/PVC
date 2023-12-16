@@ -1,16 +1,22 @@
+let temps1 = 2;
+let temps2 = 3;
+let nodes = [];
+let links = [];
+
 function Resoudre(){
   document.getElementById("titles").style.display= "flex";
   document.getElementById("method2-container").style.display = "flex";
   document.getElementById("method1-container").setAttribute("width","700");
   document.getElementById("method1-container").setAttribute("height","600");
 
+  document.getElementById("temps1").innerText = temps1 + " s";
+  document.getElementById("temps2").innerText = temps2 +" s";
+
   simulation('#method2-container');
   // here call the methods and change the colors of the cycle
   
  }
 
-let nodes = [];
-let links = [];
 
 function simulation(containerName){
   const simulation = d3.forceSimulation(nodes)

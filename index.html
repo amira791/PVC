@@ -8,12 +8,18 @@
   <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-<h3 id="title">Probleme de voyageur de commerce</h3>
 
 <div id="graphs-container">
-  <div id="titles" >
-    <p>Methode exacte</p>
-    <p>Methode vorace</p>
+  <div id="titles">
+    <div class="methode1">
+      <p>Methode exacte</p>
+      <p>Temps d'execution :<span id="temps1">s</span></p>
+    </div>
+    <div class="methode2">
+      <p>Methode vorace</p>
+    <p>Temps d'execution :<span id="temps2">s</span></p>
+    </div>
+    
   </div>
   <div id="containers">
     <svg id="method1-container" width="900" height="700"></svg>

@@ -3,11 +3,13 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 20px;
 }
 
 #graphs-container{
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 }
 
 #titles{
@@ -32,9 +34,9 @@ body{
 button {
     background-color: #66a3ff;
     color: #000000;
-    font-size: 15px;
     width: 200px;
     height: 35px;
+    font-size: 18px;
     border-radius: 12px;
     border: none;
     padding: 8px 12px 8px 12px;
@@ -49,5 +51,16 @@ button {
     border: 1px solid   rgb(217, 165, 69);
     height: 25px;
     border-radius: 8px;
+}
+
+#temps1 , #temps2{
+    font-weight: bolder;    
+}
+
+.methode1 , .methode2{
+    margin-top: 100px;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 12px;
 }
 
