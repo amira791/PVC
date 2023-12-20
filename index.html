@@ -14,6 +14,9 @@
   <br>
   <input type="text" id="numVilles" min="1" pattern="[0-9]+">
   <button id="inputs" onclick="generateInputs()">Inserer les distances</button>
+  <label for="villeDepart">Ville de Départ (Index):</label>
+  <input id="villeDepart" type="number" min="1">
+  <button id="submitBtn" onclick="getVilleDepart()">Submit</button>
   <button id="generate" onclick="generateGraph()" style="display: none;">Générer le graphe</button>
   <button id="result" onclick="Resoudre()" style="display: none;">Trouver le cycle</button>
 </div>
@@ -26,17 +29,24 @@
   <div id="titles">
     <div class="methode1">
       <p>Methode exacte</p>
+      <p> Cout de la methode :<span id="cout1">.</span></p>
       <p>Temps d'execution :<span id="temps1">s</span></p>
+      <p>Chemin :<span id="ch1">s</span></p>
+      
     </div>
     <div class="methode2">
       <p>Methode vorace</p>
+    <p> Cout de la methode :<span id="cout2">.</span></p>
     <p>Temps d'execution :<span id="temps2">s</span></p>
+    <p>Chemin :<span id="ch2">s</span></p>
     </div>
     
   </div>
   <div id="containers">
     <svg id="method1-container" width="900" height="700"></svg>
     <svg id="method2-container" width="700" height="600" style="display: none;"></svg>
+   
+  
   </div>
 </div>
 
