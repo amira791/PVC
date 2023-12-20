@@ -263,7 +263,7 @@ function tsp_exacte(graph, debut) {
   const visited = Array(n).fill(false);
   let minCost = Infinity;
   let minPath = [];
-  let dist = 0;
+
 
   function backtrack(path, cost) {
     if (path.length === n) {
@@ -290,7 +290,7 @@ function tsp_exacte(graph, debut) {
         );
         const newCurrentCityId = path[path.length - 1];
 
-        // Check if there's a link between the current and next nodes
+        
         if (link && newCurrentCityId !== debut) {
           
           backtrack(path, cost + link.distance);
@@ -312,14 +312,13 @@ function tsp_exacte(graph, debut) {
   }
  
 
-  // Start timing
+  // debut temp exc
   const startTime = new Date();
 
-  // Start from the first node id
   const startNodeId = debut;
   backtrack([startNodeId], 0);
 
-  // Stop timing
+  // fin temp exc
   const endTime = new Date();
   const elapsedTime = (endTime - startTime) / 1000; // Convert milliseconds to seconds
 
@@ -342,7 +341,7 @@ function tsp_exacte(graph, debut) {
     }
 
 
-  // Add the cost to the total cost
+  // ajouter le cost retour au debut cycle au cot total
   minCost += additionalCost;
 
   console.log("Optimal Path:", finalPath);
@@ -359,7 +358,7 @@ function tsp_heuristique(graph, debut) {
   let path = [debut]; // Start from the first node id
   let cost = 0;
 
-  // Start timing
+  // debut temp exc
   const startTime = new Date();
   //path.push(debut);
   for (let i = 0; i < n - 1; i++) {
@@ -388,8 +387,7 @@ function tsp_heuristique(graph, debut) {
     console.log("Visited Nodes:", visited);
   
     visited[graph.nodes.findIndex((node) => node.id === nextNodeId)] = true;
-  
-    // Ajoutez d'autres déclarations console.log au besoin
+
   
     path.push(nextNodeId);
     cost += minDistance;
@@ -397,18 +395,17 @@ function tsp_heuristique(graph, debut) {
   
 
 
-  // Stop timing
+  // fin temp exc
   const endTime = new Date();
   const elapsedTime = (endTime - startTime) / 1000; // Convert milliseconds to seconds
 
-  // Vérifier que le chemin forme un cycle
-  console.assert(path[0] === path[path.length - 1], "Le chemin ne forme pas un cycle.");
+
 
   // Vérifier que le chemin passe par toutes les villes une fois
   const uniqueCities = new Set(path);
   console.assert(uniqueCities.size === n, "Le chemin ne passe pas par toutes les villes une fois.");
 
-  // Vérifier que le cycle revient à la ville de départ
+
   
  
 
@@ -437,8 +434,11 @@ function tsp_heuristique(graph, debut) {
   }
 
 
-// Add the cost to the total cost
+//  ajouter le cost retour au debut cycle au cot total
 cost += additionalCost;
+
+  // Vérifier que le chemin forme un cycle
+  console.assert(path[0] === path[path.length - 1], "Le chemin ne forme pas un cycle.");
   console.log("Greedy Path:", path);
   console.assert(path[0] === debut, "Le cycle ne revient pas à la ville de départ.");
 
@@ -455,7 +455,7 @@ function Resoudre() {
   console.log("Solution exacte :", solutionExacte);
   exacteCycle = solutionExacte.minPath;
 
-  // Format the exact path as "Vi -> Vj -> ..."
+  // Format  "Vi -> Vj -> ..."
   const exactePathString = exacteCycle.map(node => node.label).join(" -> ");
 
   // Set the details for the exact solution
@@ -468,7 +468,7 @@ function Resoudre() {
   console.log("Solution heuristique :", solutionHeuristique);
   heuristiqueCycle = solutionHeuristique.path;
 
-  // Format the heuristic path as "Vi -> Vj -> ..."
+  // Format "Vi -> Vj -> ..."
   let heuristiquePathString = heuristiqueCycle.map(nodeId => GraphComplet.nodes.find(node => node.id === nodeId).label).join(" -> ");
 
   // Set the details for the heuristic solution
@@ -502,7 +502,7 @@ function highlightCycle(cycle, color, containerId) {
   // Mettre en évidence les liens du cycle dans le conteneur spécifié
   d3.select(`#${containerId}`)
     .selectAll(".link")
-    .attr("stroke", "#000000")  // Réinitialiser la couleur de tous les liens à la couleur originale (black)
+    .attr("stroke", "#000000") 
     .attr("stroke-width", 2);
 
   d3.select(`#${containerId}`)
