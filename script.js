@@ -461,7 +461,7 @@ function Resoudre() {
   // Set the details for the exact solution
   document.getElementById("cout1").innerText = solutionExacte.minCost;
   document.getElementById("temps1").innerText = solutionExacte.elapsedTime + " s";
-  document.getElementById("ch1").innerText = "Chemin : " + exactePathString;
+  document.getElementById("ch1").innerText = exactePathString;
 
   // Résolution avec méthode heuristique
   const solutionHeuristique = tsp_heuristique(GraphComplet, villeDepart);
@@ -474,7 +474,7 @@ function Resoudre() {
   // Set the details for the heuristic solution
   document.getElementById("cout2").innerText = solutionHeuristique.cost;
   document.getElementById("temps2").innerText = solutionHeuristique.elapsedTime + " s";
-  document.getElementById("ch2").innerText = "Chemin : " + heuristiquePathString;
+  document.getElementById("ch2").innerText = heuristiquePathString;
 
   // Call the simulation function with the "link" class
   simulation('#method2-container');

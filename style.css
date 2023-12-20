@@ -66,3 +66,9 @@ button {
     border-radius: 12px;
 }
 
+#villeDepart {
+    border: 1px solid   rgb(217, 165, 69);
+    height: 35px;
+    border-radius: 8px;
+    font-size: 18px;
+}
